@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Para ti, Sahomy ❤️</title>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Fondo animado de corazones -->
+    <div class="bg-hearts" id="bg-hearts"></div>
+
+    <!-- 1. PANTALLA INICIAL CON FONDO BORROSO -->
+    <div id="intro-overlay">
+        <div class="intro-card">
+            <h1>Para ti, Sahomy ❤️</h1>
+            <p>Este mensaje es para ti, te amo muchísimo. Preparé este pequeño detalle con todo mi cariño...</p>
+            <button class="btn-principal" onclick="aceptarMensaje()">Aceptar ✨</button>
+        </div>
+    </div>
+
+    <!-- 2. ESCENA PRINCIPAL: SOBRE + AMBIENTACIÓN + LETRA A LA DERECHA -->
+    <div class="escena-principal">
+        <div class="layout-principal">
+
+            <!-- Columna izquierda / centro: Sobre y controles -->
+            <div class="columna-carta">
+                <div class="fila-sobre-controles">
+
+                    <!-- Sobre Blanco + Carta + Video superpuesto sobre la carta -->
+                    <div class="contenedor-sobre" id="sobre-wrapper">
+                        <div class="sobre">
+                            <div class="solapa-superior"></div>
+                            <div class="sello-corazon">❤️</div>
+
+                            <!-- Carta dentro del sobre -->
+                            <div class="carta">
+                                <div>
+                                    <h2>Mi querida Sahomy,</h2>
+                                    <p>
+                                        Quería recordarte lo especial que eres para mí y lo feliz que me hace compartir cada momento contigo. Eres increíble y te amo con todo mi corazón. 💕
+                                    </p>
+                                </div>
+
+                                <button class="btn-video" onclick="abrirVideo()">
+                                    🎬 Reproducir video
+                                </button>
+                            </div>
+
+                            <!-- Reproductor de video que aparece SOLO sobre la carta -->
+                            <div class="video-sobre-carta" id="video-sobre-carta">
+                                <div class="barra-video-carta">
+                                    <span>🎬 Nuestro video</span>
+                                    <button class="btn-cerrar-video-carta" onclick="cerrarVideo()" title="Cerrar video">✕</button>
+                                </div>
+
+                                <!-- =====================================================
+                                     AQUÍ COLOCAS TU VIDEO:
+                                     Cambia "tu_video.mp4" por el nombre de tu archivo.
+                                     ===================================================== -->
+                                <video id="mi-video" controls>
+                                    <source src="Video/Mi_Video.mp4" type="video/mp4">
+                                    Tu navegador no soporta la reproducción de video.
+                                </video>
+                            </div>
+
+                            <div class="bolsillo-izquierdo"></div>
+                            <div class="bolsillo-derecho"></div>
+                            <div class="bolsillo-inferior"></div>
+                        </div>
+                    </div>
+
+                    <!-- Panel de música y volumen -->
+                    <div class="panel-musica">
+                        <span class="etiqueta-musica">Ambientación</span>
+                        <button class="btn-musica" id="btn-musica" onclick="toggleMusica()">
+                            <span class="disco-animado">🎵</span>
+                            <span id="texto-musica">Reproducir fondo musical</span>
+                        </button>
+
+                        <div class="control-volumen">
+                            <label for="slider-volumen" class="etiqueta-volumen">
+                                <span>🔊 Volumen</span>
+                                <span id="valor-volumen">70%</span>
+                            </label>
+                            <input
+                                type="range"
+                                id="slider-volumen"
+                                min="0"
+                                max="100"
+                                value="70"
+                                oninput="cambiarVolumen(this.value)"
+                            >
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- Botón inferior para abrir el sobre -->
+                <div class="controles-inferiores">
+                    <button class="btn-principal" id="btn-abrir-sobre" onclick="abrirSobre()">
+                        💌 Abrir sobre
+                    </button>
+                </div>
+            </div>
+
+            <!-- Columna derecha: Letra sincronizada con la canción -->
+            <aside class="panel-letra" id="panel-letra">
+                <div class="cabecera-letra">
+                    <h3>🎶 The First Time</h3>
+                    <span class="subtitulo-letra">Letra en tiempo real</span>
+                </div>
+                <div class="lista-letra" id="lista-letra">
+                    <!-- Las líneas se generan desde script.js -->
+                </div>
+            </aside>
+
+        </div>
+    </div>
+
+    <!-- =================================================================
+         AQUÍ COLOCAS TU MÚSICA DE FONDO:
+         Cambia "tu_cancion.mp3" por el nombre exacto de tu archivo de audio.
+         ================================================================= -->
+    <audio id="musica-fondo" loop>
+        <source src="Music/The First Time.mp3" type="audio/mpeg">
+    </audio>
+
+    <script src="script.js"></script>
+</body>
+</html>
